@@ -17,6 +17,8 @@ import { Page } from "./objectPage";
 export const Layout = () => {
   const navigate = useHistory();
   const goToObjectPage = () => navigate.push("/objectPage");
+  const logon = () => navigate.push("/objectPage");
+
 
   return (
     <>
@@ -55,13 +57,17 @@ export const Layout = () => {
             placeholder="password"
           />
         </FormItem>
-
-        <Button
-          icon="employee"
-          onClick={function noRefCheck() { }}
-        >
-          Button Text
-        </Button>
+        <FormItem>
+          <Button
+            style={{
+              alignItems: 'center'
+            }}
+            icon="employee"
+            onClick={logon}
+          >
+            Login
+          </Button>
+        </FormItem>
       </Form>
 
     </>
