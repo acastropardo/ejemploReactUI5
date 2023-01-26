@@ -13,12 +13,31 @@ import {
 } from "@ui5/webcomponents-react";
 
 import { Page } from "./objectPage";
+import client from './feathers';
+
+
 
 export const Layout = () => {
   const navigate = useHistory();
   const goToObjectPage = () => navigate.push("/objectPage");
-  const logon = () => navigate.push("/objectPage");
+  
+  const login = () => {
 
+      var user = "acastro@magenta-it.com"
+      var passwd = "inicio01"
+
+      client.authenticate({
+        strategy: 'local',
+        email: user,
+        password: passwd
+      }).then((response) => {
+        this.navi();
+      }).catch(e => {
+        MessageBox.show("Correo o contraseña incorrecta");
+      })
+
+
+  }
 
   return (
     <>
